@@ -3,15 +3,14 @@ import { useState } from "react";
 import { Button } from "./components/ui/button";
 import { Label } from "./components/ui/label";
 import { Input } from "./components/ui/input";
+import { api } from "./lib/api";
 
 function App() {
     const [file, setFile] = useState<File | null>(null);
 
     async function handleGetFuelPrices() {
         try {
-            const response = await axios.get(
-                "http://localhost:1111/fuel/prices"
-            );
+            const response = await api.get("/fuel/prices");
             console.log(response.data);
         } catch (error) {
             console.error("Error uploading file:", error);
@@ -28,7 +27,7 @@ function App() {
 
         try {
             const response = await axios.post(
-                "http://localhost:1111/fuel/upload-csv",
+                "/fuel/upload-csv",
                 formData,
                 {
                     headers: {
