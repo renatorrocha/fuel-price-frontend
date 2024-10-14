@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { Button } from "./components/ui/button";
 import { Label } from "./components/ui/label";
@@ -26,15 +25,11 @@ function App() {
         formData.append("file", file!);
 
         try {
-            const response = await axios.post(
-                "/fuel/upload-csv",
-                formData,
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
-            );
+            const response = await api.post("/fuel/upload-csv", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
             console.log("File uploaded successfully:", response.data);
         } catch (error) {
             console.error("Error uploading file:", error);
