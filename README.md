@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# Gerenciador de Preços de Combustíveis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um gerenciador de preços de combustíveis desenvolvido com React, TypeScript e Vite. Ele permite que os usuários obtenham preços de combustíveis e façam upload de arquivos CSV com dados de preços.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **React**: Biblioteca para construção de interfaces de usuário.
+-   **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+-   **Vite**: Ferramenta de construção e desenvolvimento rápido.
+-   **Tailwind CSS**: Framework CSS para estilização.
+-   **Axios**: Biblioteca para fazer requisições HTTP.
 
-## Expanding the ESLint configuration
+## Instalação
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Para instalar e executar o projeto, siga os passos abaixo:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone o repositório:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. Instale as dependências:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    ```bash
+    pnpm install
+    ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+3. Crie um arquivo `.env` na raiz do projeto e adicione as variáveis de ambiente necessárias:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+    ```
+    VITE_API_URL=https://api.example.com
+    VITE_PORT=3000
+    ```
+
+4. Inicie o servidor de desenvolvimento:
+    ```bash
+    pnpm run dev
+    ```
+
+Agora você pode acessar a aplicação em `http://localhost:3000`.
+
+## Estrutura do Projeto
+
+-   `src/`: Contém o código-fonte da aplicação.
+    -   `App.tsx`: Componente principal da aplicação.
+    -   `components/`: Contém componentes reutilizáveis.
+    -   `lib/`: Contém funções utilitárias e configuração da API.
+    -   `global.css`: Estilos globais da aplicação.
+-   `vite.config.ts`: Configuração do Vite.
+-   `package.json`: Dependências e scripts do projeto.
+
+## Scripts
+
+-   `npm run dev`: Inicia o servidor de desenvolvimento.
+-   `npm run build`: Compila a aplicação para produção.
+-   `npm run lint`: Executa o linter para verificar a qualidade do código.
+-   `npm run preview`: Visualiza a aplicação em modo de produção.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
